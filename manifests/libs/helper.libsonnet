@@ -30,7 +30,7 @@
     assert std.isObject(p.docker) : 'the docker variable must be set as an object with image and tag';
     assert std.isString(p.docker.tag) : 'the docker.tag variable must be set as a string';
     assert std.isString(p.docker.image) : 'the docker.image variable must be set as a string';
-    p.docker.image + ':' + p.docker.tag,
+    p.docker.image + '/' + p.docker.tag,
 
   DefaultMetadata(p):: {
     assert this.IsString(p, 'name'),
