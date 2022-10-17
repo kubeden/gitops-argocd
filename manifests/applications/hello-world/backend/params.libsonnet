@@ -3,10 +3,10 @@
     name: 'hello-world-backend',
 
     docker: {
-        image: '//some registry/hello-world-backend',  
+        image: 'registry.digitalocean.com/denctl'
     },
 
-    containerPort: 8080,
+    containerPort: 80,
 
     autoscale: {
         enabled: false,

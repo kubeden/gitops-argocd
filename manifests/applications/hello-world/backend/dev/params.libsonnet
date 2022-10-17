@@ -3,7 +3,7 @@
   type: 'aks',
 
   docker+: {
-    tag: 'sometag-293ffs9',
+    tag: 'gitops-backend@sha256:44854d8a57493361144bf725e802b0002352d17e738b8c2bcb92f969245a9f33',
   },
   host: 'hello-world-backend.denctl.com',
 
@@ -16,29 +16,5 @@
       cpu: '100m',
       memory: '50Mi',
     },
-  },
-
-  livenessProbe: {
-    httpGet: {
-      path: '/ready',
-      port: 'http'
-    },
-    initialDelaySeconds: 60,
-    periodSeconds: 5,
-    timeoutSeconds: 5
-  },
-
-  readinessProbe: {
-    httpGet: {
-      path: '/healthz/',
-      port: 'http'
-    },
-    initialDelaySeconds: 60,
-    periodSeconds: 5,
-    timeoutSeconds: 5
-  },
-
-  env: {
-    SOME_ENV_VAR: "some value",
   },
 }
