@@ -10,14 +10,14 @@
     name: 'hello-world-frontend',
     namespace: 'hello-world',
     destination: 'in-cluster',
-    path: 'manifests/applications/hello-world/frontend',
+    path: 'manifests/applications/hello-world/frontend/dev',
     project: 'default'
   },
   {
     name: 'hello-world-backend',
     namespace: 'hello-world',
     destination: 'in-cluster',
-    path: 'manifests/applications/hello-world/backend',
+    path: 'manifests/applications/hello-world/backend/dev',
     project: 'default'
   },
 ]
