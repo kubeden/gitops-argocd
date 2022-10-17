@@ -1,3 +1,3 @@
 {
-    configRepo: 'git@github.com:denctl/gitops-argocd.git'
+    configRepo: 'https://github.com/denctl/gitops-argocd.git'
 }
