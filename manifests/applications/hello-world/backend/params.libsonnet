@@ -6,7 +6,7 @@
         image: 'registry.digitalocean.com/denctl'
     },
 
-    containerPort: 80,
+    containerPort: 3001,
 
     autoscale: {
         enabled: false,
