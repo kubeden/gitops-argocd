@@ -3,7 +3,7 @@
     name: 'app-of-apps-hello-world',
     namespace: 'argocd',
     destination: 'in-cluster',
-    path: 'xz98a/app-of-apps-hello-world/dev',
+    path: 'manifests/applications/app-of-apps-hello-world/dev',
     project: 'default'
   },
   {
