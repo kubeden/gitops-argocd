@@ -9,11 +9,11 @@
 
   resources: {
     limits: {
-      cpu: '200m',
-      memory: '200Mi',
+      cpu: '50m',
+      memory: '50Mi',
     },
     requests: {
-      cpu: '100m',
+      cpu: '50m',
       memory: '50Mi',
     },
   },
