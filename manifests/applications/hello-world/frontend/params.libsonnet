@@ -3,7 +3,7 @@
     name: 'hello-world-frontend',
 
     docker: {
-        image: '//somecontainer-registry-on-do'  
+        image: 'registry.digitalocean.com/denctl'  
     },
 
     containerPort: 80,
