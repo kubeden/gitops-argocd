@@ -1,9 +1,9 @@
 [
   {
-    name: 'app-of-apps-mes',
+    name: 'app-of-apps-hello-world',
     namespace: 'argocd',
     destination: 'in-cluster',
-    path: 'xz98a/app-of-apps-mes/dev',
+    path: 'xz98a/app-of-apps-hello-world/dev',
     project: 'default'
   },
   {
