@@ -38,11 +38,11 @@
     assert this.IsString(p, 'product'),
     metadata+: {
       labels+: {
-        'skf.io/contact': p.contact,
+        'contact': p.contact,
         'app.kubernetes.io/name': p.name,
       },
       annotations+: {
-        'skf.se/product': p.product,
+        'product': p.product,
       },
     },
   },
@@ -55,8 +55,6 @@
     if this.IsString(p, 'name') then p.name,
   GetSecretName(p)::
     if this.IsString(p, 'name') then p.name,
-  GetExternalSecretName(p)::
-    if this.IsString(p, 'name') then p.name + '-external',
   GetSealedSecretName(p)::
     if this.IsString(p, 'name') then p.name + '-sealed',
   GetServiceName(p)::

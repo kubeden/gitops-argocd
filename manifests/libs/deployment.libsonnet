@@ -29,20 +29,6 @@ local envFromSecret(p) =
   else
     {};
 
-local envFromExternalSecret(p) =
-  if std.objectHas(p, 'externalSecrets') then
-    {
-      envFrom+: [
-        {
-          secretRef: {
-            name: helper.GetExternalSecretName(p),
-          },
-        },
-      ],
-    }
-  else
-    {};
-
 local envVars(p) =
   if std.objectHas(p, 'env') then
     {
@@ -51,7 +37,7 @@ local envVars(p) =
   else
     {};
 
-local envFrom(p) = envFromConfigMap(p) + envFromSecret(p) + envFromExternalSecret(p) + envVars(p) {
+local envFrom(p) = envFromConfigMap(p) + envFromSecret(p) + envVars(p) {
 };
 
 local Container(p) = kube.Container(p.name) + envFrom(p) {

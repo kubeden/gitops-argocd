@@ -5,7 +5,7 @@
   docker+: {
     tag: 'sometag-293ffs9',
   },
-  host: 'hello-world-api.dev.xz98a.skf.io',
+  host: 'hello-world-backend.denctl.com',
 
   resources: {
     limits: {
