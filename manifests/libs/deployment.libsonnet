@@ -88,7 +88,7 @@ local Container(p) = kube.Container(p.name) + envFrom(p) {
                           },
                           imagePullSecrets: [
                               {
-                                name: 'do-registry',
+                                name: 'registry-denctl',
                               },
                             ]
 
