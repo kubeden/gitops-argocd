@@ -1,13 +1,6 @@
 local kube = import 'kube.libsonnet';
 local helper = import 'helper.libsonnet';
 
-local defaultReadinessProbe = {
-  httpGet: { path: '/api/v1/Health/ready', port: 'http' },
-  initialDelaySeconds: 10,
-  periodSeconds: 5,
-  timeoutSeconds: 5,
-};
-
 local envFromConfigMap(p) =
   if std.objectHas(p, 'data') then
     {
@@ -78,7 +71,7 @@ local Container(p) = kube.Container(p.name) + envFrom(p) {
 };
 
 {
-  SkfDefaultDeployment(p):: kube.Deployment(p.name) +
+  Deployment(p):: kube.Deployment(p.name) +
                   helper.DefaultMetadata(p) {
                     assert helper.IsString(p, 'name'),
                     assert std.objectHasAll(p.autoscale, 'enabled'),
@@ -109,14 +102,9 @@ local Container(p) = kube.Container(p.name) + envFrom(p) {
                           },
                           imagePullSecrets: [
                               {
-                                name: 'skfxz98aacr',
+                                name: 'registry.digitalocean.com/denctl',
                               },
                             ]
-                            // imagePullSecrets: if p.type == 'hci' || p.type == 'k3s' then [
-                            //   {
-                            //     name: 'skfxz98aacr',
-                            //   },
-                            // ] else [],
 
                         } + if std.objectHas(p, 'initContainers') then {
                           initContainers_+: p.initContainers,

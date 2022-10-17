@@ -1,16 +1,12 @@
 local deployment = import 'deployment.libsonnet';
-local externalSecrets = import 'externalSecrets.libsonnet';
 local ingress = import 'ingress.libsonnet';
 local kube = import 'kube.libsonnet';
 local service = import 'service.libsonnet';
 
 {
   SimpleApp(p):: {
-                         ingress: ingress.Ingress(p),
-                         deployment: deployment.SkfDefaultDeployment(p),
-                         service: service.SkfDefaultService(p),
-
-                       } +
-                       if std.objectHas(p, 'externalSecrets') then { externalSecret: externalSecrets.ExternalSecret(p) } else {},
-
+    ingress: ingress.Ingress(p),
+    deployment: deployment.Deployment(p),
+    service: service.Service(p),
+  }
 }

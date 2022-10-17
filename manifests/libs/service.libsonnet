@@ -1,5 +1,5 @@
 {
-  SkfDefaultService(p):: {
+  Service(p):: {
     apiVersion: 'v1',
     kind: 'Service',
     metadata: {

@@ -5,12 +5,12 @@ local helper = import 'helper.libsonnet';
   Ingress(p):: kube.Ingress(p.name) {
     metadata+: {
       annotations+: {
-        'cert-manager.io/cluster-issuer': 'letsencrypt-prod',
+        'cert-manager.io/cluster-issuer': 'letsencrypt',
         'kubernetes.io/tls-acme': 'true',
       },
     },
     spec: {
-      ingressClassName: 'nginx-internal',
+      ingressClassName: 'nginx',
       rules: [
         {
           host: p.host,
