@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/tls-acme: 'true'
+  labels:
+    app.kubernetes.io/instance: hello-world-frontend
+    name: hello-world-frontend
+  name: hello-world-frontend
+  namespace: hello-world
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.denctl.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: hello-world-frontend
+                port:
+                  name: http
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - hello-world.denctl.com
