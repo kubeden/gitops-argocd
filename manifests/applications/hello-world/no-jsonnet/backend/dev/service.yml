@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: hello-world-backend
+  name: hello-world-backend
+  namespace: hello-world
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3001
+  selector:
+    app: hello-world-backend
+  type: ClusterIP

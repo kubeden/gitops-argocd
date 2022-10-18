@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    product: GitOps Demo
+  labels:
+    app: hello-world-backend
+    app.kubernetes.io/instance: hello-world-backend
+    app.kubernetes.io/name: hello-world-backend
+    contact: denctl
+    name: hello-world-backend
+  name: hello-world-backend
+  namespace: hello-world
+spec:
+  minReadySeconds: 30
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: hello-world-backend
+      app.kubernetes.io/name: hello-world-backend
+      contact: denctl
+      name: hello-world-backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: hello-world-backend
+        app.kubernetes.io/name: hello-world-backend
+        contact: denctl
+        name: hello-world-backend
+    spec:
+      containers:
+        - args: []
+          command: []
+          env:
+            - name: CONTAINER_IMAGE_TAG
+              value: >-
+                gitops-backend@sha256:44854d8a57493361144bf725e802b0002352d17e738b8c2bcb92f969245a9f33
+          image: >-
+            registry.digitalocean.com/denctl/gitops-backend@sha256:44854d8a57493361144bf725e802b0002352d17e738b8c2bcb92f969245a9f33
+          imagePullPolicy: IfNotPresent
+          name: hello-world-backend
+          ports:
+            - containerPort: 3001
+              name: http
+          resources:
+            limits:
+              cpu: 50m
+              memory: 50Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          stdin: false
+          tty: false
+          volumeMounts: []
+      imagePullSecrets:
+        - name: registry-denctl
+      initContainers: []
+      terminationGracePeriodSeconds: 30
+      volumes: []
