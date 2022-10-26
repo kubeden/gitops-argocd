@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    product: GitOps Demo
+  labels:
+    app: hello-world-frontend
+    app.kubernetes.io/instance: hello-world-frontend
+    app.kubernetes.io/name: hello-world-frontend
+    contact: denctl
+    name: hello-world-frontend
+  name: hello-world-frontend
+  namespace: hello-world
+spec:
+  minReadySeconds: 30
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: hello-world-frontend
+      app.kubernetes.io/name: hello-world-frontend
+      contact: denctl
+      name: hello-world-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: hello-world-frontend
+        app.kubernetes.io/name: hello-world-frontend
+        contact: denctl
+        name: hello-world-frontend
+    spec:
+      containers:
+        - args: []
+          command: []
+          env:
+            - name: CONTAINER_IMAGE_TAG
+              value: >-
+                gitops-frontend@sha256:c05b6a6dcadf054525defca6798e8103c20482d924b89249ccbe7eda778ffe1a
+          image: >-
+            registry.digitalocean.com/denctl/gitops-frontend@sha256:c05b6a6dcadf054525defca6798e8103c20482d924b89249ccbe7eda778ffe1a
+          imagePullPolicy: IfNotPresent
+          name: hello-world-frontend
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              cpu: 50m
+              memory: 50Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          stdin: false
+          tty: false
+          volumeMounts: []
+      imagePullSecrets:
+        - name: registry-denctl
+      initContainers: []
+      terminationGracePeriodSeconds: 30
+      volumes: []
