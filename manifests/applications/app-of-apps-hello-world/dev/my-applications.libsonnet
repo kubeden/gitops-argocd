@@ -20,4 +20,18 @@
     path: 'manifests/applications/hello-world/backend/dev',
     project: 'default'
   },
+  {
+    name: 'demo-world-frontend',
+    namespace: 'demo-world',
+    destination: 'in-cluster',
+    path: 'manifests/applications/demo-world/frontend/dev',
+    project: 'default'
+  },
+  {
+    name: 'demo-world-backend',
+    namespace: 'demo-world',
+    destination: 'in-cluster',
+    path: 'manifests/applications/demo-world/backend/dev',
+    project: 'default'
+  },
 ]
