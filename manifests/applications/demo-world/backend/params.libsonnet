@@ -1,6 +1,6 @@
 (import '../params.libsonnet'){
     
-    name: 'hello-world-backend',
+    name: 'demo-world-backend',
 
     docker: {
         image: 'registry.digitalocean.com/denctl'
