@@ -3,7 +3,7 @@
   type: 'doks',
 
   docker+: {
-    tag: 'gitops-frontend@sha256:c05b6a6dcadf054525defca6798e8103c20482d924b89249ccbe7eda778ffe1a',
+    tag: 'gitops-frontend@sha256:213a453866e67dcbfed51b21c4ad5c18a7290da79b1d1731407d83f6432f1681',
   },
   host: 'demo-world.denctl.com',
 
