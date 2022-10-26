@@ -1,4 +1,4 @@
-# ArgoCD Gitops With Jsonnet on DigitalOcean Kubernetes
+# ArgoCD Potions: Templating yaml manifests with Jsonnet
 
 ![ArgoCD](assets/img/intro.png)
 
